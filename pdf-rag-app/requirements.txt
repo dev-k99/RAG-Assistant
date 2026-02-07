@@ -1,0 +1,23 @@
+# Streamlit for web interface
+streamlit>=1.32.0
+
+# LangChain core
+langchain==0.2.16
+langchain-core==0.2.38
+langchain-community==0.2.16
+langchain-text-splitters==0.2.4
+
+# Groq integration (free LLM API)
+langchain-groq==0.1.9
+
+# Vector store
+faiss-cpu>=1.7.4
+
+# PDF processing
+pypdf>=4.0.0
+
+# HuggingFace embeddings (local, no API needed)
+sentence-transformers>=2.2.2
+
+# Environment variables (optional)
+python-dotenv>=1.0.0
