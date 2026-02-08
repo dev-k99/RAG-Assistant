@@ -111,7 +111,7 @@ if "rag_chain" not in st.session_state:
 # ----------------------------
 # UI
 # ----------------------------
-st.title("📚 PDF Q&A Assistant")
+st.title("PDF Q&A Assistant")
 
 st.markdown(
     """
