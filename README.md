@@ -49,8 +49,12 @@ PDF Q&A Assistant is a production-ready application that leverages state-of-the-
 ## 🚀 Demo
  
  App is live here: https://pdf-rag-a1.streamlit.app/
-### Application Flow
 
+ ## Screenshots
+
+### Application Flow
+![Home](screenshots/home.png)
+![Setup](screenshots/setup.png)
 ```
 1. Upload PDF → 2. Process Document → 3. Ask Questions → 4. Get Answers
      📄              🔄                    💭               ✅
