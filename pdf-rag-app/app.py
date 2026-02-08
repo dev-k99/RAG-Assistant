@@ -60,12 +60,14 @@ def create_vector_store(text):
 
 
 def create_rag_chain(vector_store):
-    """Create RAG chain using Groq LLM (API key from .env)."""
+    groq_api_key = st.secrets["GROQ_API_KEY"]
 
     llm = ChatGroq(
         model="llama-3.1-8b-instant",
         temperature=0.3,
+        groq_api_key=groq_api_key,
     )
+
 
     prompt = ChatPromptTemplate.from_template(
         """You are a helpful assistant.
