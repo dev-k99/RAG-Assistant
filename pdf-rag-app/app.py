@@ -3,6 +3,12 @@ PDF RAG Application - Fully Local/Free Version
 Uses HuggingFace embeddings and Groq's free LLM API
 """
 
+# ----------------------------
+# Load environment variables
+# ----------------------------
+from dotenv import load_dotenv
+load_dotenv()
+
 import os
 import streamlit as st
 from pypdf import PdfReader
@@ -43,9 +49,9 @@ def create_vector_store(text):
         chunk_size=1000,
         chunk_overlap=200,
     )
+
     chunks = splitter.split_text(text)
 
-    # Using local HuggingFace embeddings - no API key needed
     embeddings = HuggingFaceEmbeddings(
         model_name="sentence-transformers/all-MiniLM-L6-v2"
     )
@@ -53,12 +59,12 @@ def create_vector_store(text):
     return FAISS.from_texts(chunks, embeddings)
 
 
-def create_rag_chain(vector_store, api_key):
-    """Create RAG chain using Groq's free LLM API."""
+def create_rag_chain(vector_store):
+    """Create RAG chain using Groq LLM (API key from .env)."""
+
     llm = ChatGroq(
-        model="llama-3.1-70b-versatile",
+        model="llama-3.1-8b-instant",
         temperature=0.3,
-        groq_api_key=api_key,
     )
 
     prompt = ChatPromptTemplate.from_template(
@@ -76,9 +82,12 @@ Question:
 
     retriever = vector_store.as_retriever(search_kwargs={"k": 3})
 
+    def format_docs(docs):
+        return "\n\n".join(doc.page_content for doc in docs)
+
     chain = (
         {
-            "context": retriever,
+            "context": retriever | format_docs,
             "question": lambda x: x,
         }
         | prompt
@@ -103,54 +112,56 @@ if "rag_chain" not in st.session_state:
 # UI
 # ----------------------------
 st.title("📚 PDF Q&A Assistant")
+
 st.markdown(
     """
-    Upload a PDF document and ask questions about its content. 
-    This app uses local embeddings and Groq's free API for responses.
-    """
+Upload a PDF document and ask questions about its content.  
+This app uses **local embeddings** and **Groq's free LLM API**.
+"""
 )
 
 with st.sidebar:
-    st.header("⚙️ Configuration")
-    
+    st.header("⚙️ Setup")
+
     st.markdown(
         """
-        ### Get Your Free Groq API Key
-        1. Visit [console.groq.com](https://console.groq.com)
-        2. Sign up for a free account
-        3. Generate an API key
-        """
-    )
+### Groq API Key
+This app reads your key from a `.env` file.
 
-    api_key = st.text_input("Groq API Key", type="password")
+"""
+    )
 
     uploaded_file = st.file_uploader("Upload PDF", type="pdf")
 
-    if api_key and uploaded_file and st.button("Process PDF"):
-        with st.spinner("Processing document... (This may take a moment on first run)"):
+    if uploaded_file and st.button("Process PDF"):
+        with st.spinner("Processing document..."):
             try:
                 text = extract_text_from_pdf(uploaded_file)
-                
+
                 if not text.strip():
-                    st.error("Could not extract text from PDF. Please ensure it's a text-based PDF.")
+                    st.error(
+                        "Could not extract text from PDF. "
+                        "Please upload a text-based PDF."
+                    )
                 else:
                     vector_store = create_vector_store(text)
-                    st.session_state.rag_chain = create_rag_chain(vector_store, api_key)
+                    st.session_state.rag_chain = create_rag_chain(vector_store)
                     st.session_state.messages = []
                     st.success("✅ PDF processed successfully!")
+
             except Exception as e:
-                st.error(f"Error processing PDF: {str(e)}")
+                st.error(f"Error processing PDF: {e}")
 
     st.divider()
-    
+
     st.markdown(
         """
-        ### 💡 Features
-        - 🔒 Local embeddings (no data sent for embedding)
-        - 🆓 Free Groq API (fast responses)
-        - 💬 Chat interface
-        - 📄 PDF text extraction
-        """
+### 💡 Features
+- 🔒 Local embeddings (no data sent for embeddings)
+- 🆓 Free Groq API
+- ⚡ Fast responses
+- 💬 Chat interface
+"""
     )
 
 
@@ -175,17 +186,17 @@ if st.session_state.rag_chain:
                 )
                 st.chat_message("assistant").write(answer)
             except Exception as e:
-                st.error(f"Error generating response: {str(e)}")
+                st.error(f"Error generating response: {e}")
 else:
-    st.info("👆 Upload a PDF and enter your Groq API key to begin.")
-    
+    st.info("👆 Upload a PDF to begin.")
+
     with st.expander("ℹ️ How to use"):
         st.markdown(
             """
-            1. Get a free API key from [Groq](https://console.groq.com)
-            2. Paste your API key in the sidebar
-            3. Upload a PDF document
-            4. Click "Process PDF"
-            5. Start asking questions!
-            """
-        )
+1. Create a `.env` file  
+2. Add your `GROQ_API_KEY`
+3. Run `streamlit run app.py`
+4. Upload a PDF
+5. Ask questions!
+"""
+)
