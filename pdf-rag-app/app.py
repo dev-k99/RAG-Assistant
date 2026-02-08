@@ -156,11 +156,11 @@ This app reads your key from a `.env` file.
 
     st.markdown(
         """
-### 💡 Features
-- 🔒 Local embeddings (no data sent for embeddings)
-- 🆓 Free Groq API
-- ⚡ Fast responses
-- 💬 Chat interface
+###  Features
+-  Local embeddings (no data sent for embeddings)
+-  Free Groq API
+-  Fast responses
+-  Chat interface
 """
     )
 
