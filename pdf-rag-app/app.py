@@ -26,7 +26,7 @@ from langchain_groq import ChatGroq
 # ----------------------------
 st.set_page_config(
     page_title="PDF Q&A Assistant",
-    page_icon="📚",
+    page_icon="",
     layout="wide",
 )
 
@@ -123,7 +123,7 @@ This app uses **local embeddings** and **Groq's free LLM API**.
 )
 
 with st.sidebar:
-    st.header("⚙️ Setup")
+    st.header("Setup")
 
     st.markdown(
         """
@@ -149,7 +149,7 @@ This app reads your key from a `.env` file.
                     vector_store = create_vector_store(text)
                     st.session_state.rag_chain = create_rag_chain(vector_store)
                     st.session_state.messages = []
-                    st.success("✅ PDF processed successfully!")
+                    st.success(" PDF processed successfully!")
 
             except Exception as e:
                 st.error(f"Error processing PDF: {e}")
@@ -190,9 +190,9 @@ if st.session_state.rag_chain:
             except Exception as e:
                 st.error(f"Error generating response: {e}")
 else:
-    st.info("👆 Upload a PDF to begin.")
+    st.info("Upload a PDF to begin.")
 
-    with st.expander("ℹ️ How to use"):
+    with st.expander("How to use"):
         st.markdown(
             """
 1. Create a `.env` file  
