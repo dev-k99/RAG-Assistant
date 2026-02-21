@@ -1,4 +1,4 @@
-# PDF Q&A Assistant - Intelligent Document Query System
+# DocLens - Intelligent Document Query System
 
 <div align="center">
 
@@ -9,7 +9,7 @@
 
 *An intelligent RAG (Retrieval-Augmented Generation) application that enables natural language querying of PDF documents*
 
-[Features](#-features) • [Demo](https://pdf-rag-a1.streamlit.app/) • [Installation](#-installation) • [Usage](#-usage) • [Architecture](#-architecture) • [Contributing](#-contributing)
+[Features](#-features) • [Demo](https://dev-k99.github.io/RAG-Assistant/) • [Installation](#-installation) • [Usage](#-usage) • [Architecture](#-architecture) • [Contributing](#-contributing)
 
 </div>
 
@@ -17,7 +17,7 @@
 
 ##  Overview
 
-PDF Q&A Assistant is a production-ready application that leverages state-of-the-art RAG technology to enable intelligent question-answering over PDF documents. Built with privacy and performance in mind, it uses **local embeddings** and **free cloud-based LLMs** to deliver fast, accurate responses.
+DocLens is a production-ready application that leverages state-of-the-art RAG technology to enable intelligent question-answering over PDF documents. Built with privacy and performance in mind, it uses **local embeddings** and **free cloud-based LLMs** to deliver fast, accurate responses.
 
 ###  Key Highlights
 
@@ -48,7 +48,8 @@ PDF Q&A Assistant is a production-ready application that leverages state-of-the-
 
 ##  Demo
  
- App is live here: https://pdf-rag-a1.streamlit.app/
+
+ App is live here: https://dev-k99.github.io/RAG-Assistant/
 
  ## Screenshots
 
