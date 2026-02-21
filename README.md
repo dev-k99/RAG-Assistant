@@ -1,4 +1,4 @@
-# 📚 PDF Q&A Assistant - Intelligent Document Query System
+# PDF Q&A Assistant - Intelligent Document Query System
 
 <div align="center">
 
@@ -15,27 +15,27 @@
 
 ---
 
-## 🎯 Overview
+##  Overview
 
 PDF Q&A Assistant is a production-ready application that leverages state-of-the-art RAG technology to enable intelligent question-answering over PDF documents. Built with privacy and performance in mind, it uses **local embeddings** and **free cloud-based LLMs** to deliver fast, accurate responses.
 
-### 🌟 Key Highlights
+###  Key Highlights
 
-- **🔒 Privacy-First**: Embeddings generated locally - your documents never leave your machine for vectorization
-- **💰 Cost-Effective**: Uses Groq's free API with generous rate limits
-- **⚡ High Performance**: Fast inference with Llama 3.1 70B model
-- **🎨 Modern UI**: Clean, intuitive Streamlit interface with chat functionality
-- **📊 Production-Ready**: Error handling, session management, and optimized chunking
+- **Privacy-First**: Embeddings generated locally - your documents never leave your machine for vectorization
+- **Cost-Effective**: Uses Groq's free API with generous rate limits
+- **High Performance**: Fast inference with Llama 3.1 70B model
+- **Modern UI**: Clean, intuitive Streamlit interface with chat functionality
+- **Production-Ready**: Error handling, session management, and optimized chunking
 
 ---
 
-## ✨ Features
+##  Features
 
 ### Core Functionality
-- 📄 **PDF Text Extraction**: Robust PDF parsing with pypdf
-- 🔍 **Semantic Search**: FAISS vector store for efficient similarity search
-- 💬 **Conversational Interface**: Maintains chat history for context-aware responses
-- 🧠 **Smart Chunking**: Optimized text splitting with overlap for context preservation
+-  **PDF Text Extraction**: Robust PDF parsing with pypdf
+-  **Semantic Search**: FAISS vector store for efficient similarity search
+-  **Conversational Interface**: Maintains chat history for context-aware responses
+-  **Smart Chunking**: Optimized text splitting with overlap for context preservation
 
 ### Technical Features
 - **Local Embeddings**: HuggingFace `sentence-transformers/all-MiniLM-L6-v2`
@@ -46,7 +46,7 @@ PDF Q&A Assistant is a production-ready application that leverages state-of-the-
 
 ---
 
-## 🚀 Demo
+##  Demo
  
  App is live here: https://pdf-rag-a1.streamlit.app/
 
@@ -68,7 +68,7 @@ PDF Q&A Assistant is a production-ready application that leverages state-of-the-
 
 ---
 
-## 📦 Installation
+##  Installation
 
 ### Prerequisites
 
@@ -109,7 +109,7 @@ The app will open in your browser at `http://localhost:8501`
 
 ---
 
-## 💻 Usage
+##  Usage
 
 ### Basic Workflow
 
@@ -127,19 +127,19 @@ The app will open in your browser at `http://localhost:8501`
 
 ### Tips for Best Results
 
-✅ **Do**:
+ **Do**:
 - Ask specific questions
 - Reference sections or topics in your questions
 - Break complex queries into multiple questions
 
-❌ **Avoid**:
+ **Avoid**:
 - Questions outside the document scope
 - Asking for information not in the PDF
 - Extremely vague or ambiguous queries
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ### System Architecture
 
@@ -198,7 +198,7 @@ The app will open in your browser at `http://localhost:8501`
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 pdf-rag-app/
@@ -214,7 +214,7 @@ pdf-rag-app/
 
 ---
 
-## 🔧 Configuration
+##  Configuration
 
 ### Customization Options
 
@@ -245,7 +245,7 @@ model="llama-3.1-8b-instant"  # Groq model
 
 ---
 
-## 🚀 Deployment
+##  Deployment
 
 ### Streamlit Cloud (Recommended)
 
@@ -256,7 +256,7 @@ model="llama-3.1-8b-instant"  # Groq model
 5. Deploy!
 
 
-## 📊 Performance
+##  Performance
 
 ### Metrics
 
@@ -269,14 +269,14 @@ model="llama-3.1-8b-instant"  # Groq model
 
 ### Optimizations
 
-- ✅ Cached embeddings model (loads once)
-- ✅ Efficient FAISS indexing
-- ✅ Optimized chunking strategy
-- ✅ Session state management
+-  Cached embeddings model (loads once)
+-  Efficient FAISS indexing
+-  Optimized chunking strategy
+-  Session state management
 
 ---
 
-## 🛠️ Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -294,15 +294,15 @@ model="llama-3.1-8b-instant"  # Groq model
 
 ---
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Here's how you can help:
 
-1. 🍴 Fork the repository
-2. 🌿 Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. 💾 Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. 📤 Push to the branch (`git push origin feature/AmazingFeature`)
-5. 🎉 Open a Pull Request
+1.  Fork the repository
+2.  Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
 ### Development Setup
 
@@ -323,7 +323,7 @@ black app.py
 
 ---
 
-## 📈 Roadmap
+##  Roadmap
 
 - [ ] Multi-document support
 - [ ] Document upload history
@@ -336,13 +336,13 @@ black app.py
 
 ---
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 
 - [LangChain](https://www.langchain.com/) for the RAG framework
@@ -352,7 +352,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 📧 Contact
+##  Contact
 
 **Kwanele** - [@just_know6](https://twitter.com/@just_know6) - kwanelerh069@gmail.com
 
